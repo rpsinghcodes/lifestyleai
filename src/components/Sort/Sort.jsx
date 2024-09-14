@@ -1,3 +1,10 @@
+/*
+
+This component allow user to sort the listed tool based on the price, users and more
+
+*/
+
+
 "use client";
 import { useState } from "react";
 
@@ -28,14 +35,14 @@ export default function Sort({open, close, data}) {
         <dialog open={open} className="min-w-[1000px] text-white rounded-[77px] overflow-hidden z-20">
             <div className="flex justify-around items-center  py-7 pricing-gradient">
                 <span></span>
-                <h1 className="text-3xl">Sort By</h1>
+                <h1 className="text-lg">Sort By</h1>
                 <span className="relative inline-block w-6 h-6" onClick={() => close(false)}>
                 <span className="absolute top-0 left-1/2 transform -translate-x-1/2 h-6 w-[3px] rounded-lg rotate-45 bg-white"></span>
                 <span className="absolute top-0 left-1/2 transform -translate-x-1/2 h-6 w-[3px] rounded-lg -rotate-45 bg-white"></span>
                 </span>
 
             </div>
-            <div className="bg-[#116466] font-sqrt-roman text-2xl text-left py-[15px] px-[60px]">
+            <div className="bg-[#116466] font-sqrt-roman text-base text-left py-[15px] px-[60px]">
                 <h3 className="mb-[10px]">Price</h3>
                 <div className="flex  gap-[30px]">
                     <button className={btnClass + `${sortBy.price === "low-to-high" && " bg-slate-500 border-slate-500"}`} onClick={() => handleClick("price", "low-to-high")}>Low to High</button>

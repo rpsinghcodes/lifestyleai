@@ -2,16 +2,16 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 
 export default function SubmitTool() {
-    const inputClassName = "w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-xl";
+    const inputClassName = "w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-sm";
     function Input({placeholder, name}){
-        return <input type="text" placeholder={placeholder} name={name} className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-xl" />
+        return <input type="text" placeholder={placeholder} name={name} className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-sm" />
     }
     return(
         <>
             <Header />
             <section className="py-[50px] px-[500px]">
-                <h1 className="text-[32px] ">Guidelines</h1>
-                <ul className="text-xl font-sqrt-roman flex flex-col gap-10 py-[30px] list-disc">
+                <h1 className="text-xl ">Guidelines</h1>
+                <ul className="text-sm font-sqrt-roman flex flex-col gap-10 py-[30px] list-disc">
                     <li>Provide a detailed description of your AI tool, covering its main features, functionalities, and use cases. Explain what problems it solves and how it benefits users.</li>
 
                     <li>Include thorough user documentation, such as installation guides, usage instructions, and FAQs.</li>
@@ -24,15 +24,15 @@ export default function SubmitTool() {
                 </ul>
             </section>
             <section className="py-[50px] px-[500px]">
-                <h1 className="text-center text-4xl pb-[30px]">Submit a Tool</h1>
-                <div className="flex flex-col gap-[30px]">
-                <input type="text" placeholder="Full Name" name="fullName" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-xl" />
-                <input type="email" placeholder="Email" name="email" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-xl" />
-                <input type="text" placeholder="Tool Name" name="toolName" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-xl" />
-                <input type="url" placeholder="Tool URL" name="toolUrl" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-xl" />
-                <input type="text" placeholder="Tool Tags" name="toolTags" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-xl" />
-                <input type="text" placeholder="Pricing Models" name="pricingModels" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-xl" />
-                <textarea  placeholder="Tool Description" name="toolDescription" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman text-xl" />
+                <h1 className="text-center text-2xl pb-[30px]">Submit a Tool</h1>
+                <div className="flex flex-col gap-[30px] text-sm">
+                    <input type="text" placeholder="Full Name" name="fullName" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman " />
+                    <input type="email" placeholder="Email" name="email" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman " />
+                    <input type="text" placeholder="Tool Name" name="toolName" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman " />
+                    <input type="url" placeholder="Tool URL" name="toolUrl" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman " />
+                    <input type="text" placeholder="Tool Tags" name="toolTags" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman " />
+                    <input type="text" placeholder="Pricing Models" name="pricingModels" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman" />
+                    <textarea  placeholder="Tool Description" name="toolDescription" className="w-full py-4 rounded-[82px] bg-transparent border-[3px] px-[50px] font-sqrt-roman " />
                 
                 
                 </div>

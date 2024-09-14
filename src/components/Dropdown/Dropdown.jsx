@@ -1,5 +1,12 @@
+// No more required 
+
 import { useState } from "react";
 import Link from "next/link";
+/*
+
+Not in use
+
+*/
 
 export default function Dropdown(){
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);

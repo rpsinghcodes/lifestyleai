@@ -8,18 +8,26 @@
   src: url('/fonts/Azonix.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
-
-  
-  
 }
+
 @font-face {
   font-family:"Square721B";
   src:url('/fonts/SQR721B.TTF') format('truetype');
 }
 
+@font-face {
+  font-family:"Square721B-roman";
+  src:url('/fonts/Square721Roman.ttf') format('truetype');
+}
+
+
+
+
 body {
   font-family: 'Azonix', sans-serif;
   background-image: url("../../public/images/input.png");
+  background-size: cover;
+  width: 100%;
 }
 
 @keyframes glow {
@@ -36,7 +44,7 @@ body {
 }
 
 .shadow-glow {
-  box-shadow: 0 0 5px #FFCB9A, 0 0 10px #FFCB9A, 0 0 15px #FFCB9A, 0 0 20px #FFCB9A;
+  box-shadow: 0 0 3px #FFCB9A, 0 0 10px #FFCB9A, 0 0 6px #FFCB9A, 0 0 9px #FFCB9A;
 }
 
 
@@ -75,4 +83,26 @@ background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(34,59,65,0) 96%, rgba
 .featured-video-gradient{
   background: rgb(0,0,0);
 background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0) 100%);
+}
+
+
+.pricing-gradient{
+  background: rgb(17,100,102);
+background: linear-gradient(180deg, rgba(17,100,102,0.5) 0%, rgba(17,100,102,1) 100%);
+}
+
+.btn-gradient {
+  background: rgb(17,100,102);
+background: linear-gradient(-180deg, rgba(17,100,102,1) 0%, rgba(6,40,41,1) 100%);
+}
+
+
+.invite-gradient{
+  background: rgb(17,100,102);
+  background: linear-gradient(180deg, rgba(17,100,102,1) 0%, rgba(6,40,41,1) 100%);
+}
+
+.header-gradient{
+  background:black;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0) 100%)
 }

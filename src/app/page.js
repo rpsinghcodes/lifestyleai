@@ -1,28 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import Header from "@/components/Header/Header";
 import star from "../../public/icons/star-filled.svg"
 import unfilledStar from "../../public/icons/star-unfilled.svg"
-import bottomArrow from "../../public/icons/bottom-arrow.svg"
-import tensorFlow from "../../public/images/tensorFlow.png";
-import h20 from "../../public/images/h20.png";
-import pyTorch from "../../public/images/pyTorch.png";
-import rapidMiner from "../../public/images/rapidMiner.png";
-import dataRobot from "../../public/images/DataRobot.png";
-import mlFlow from "../../public/images/mlFlow.png";
-// import backgroundImage from "../../public/images/background.png";
-import Card from "@/components/Card/Card";
 import Footer from "@/components/Footer/Footer";
+import ToolCard from "@/components/ToolCard/ToolCard";
+import dataBase from "../../public/data/dataBase.json";
+import Link from "next/link";
+import { useState } from "react";
 
-export default function Home() {
+/*
+Home Page of our Application
+*/
+
+export default function Home() {  
+  const [sectionIsVisible, setSectionIsVisible] = useState(false) // Trending and ForYou  as well as footer section visiblity
+
   return (
     <>
    <Header />
+   
    <section className={`text-white  `} >
-    <div  className="flex   items-center justify-around">
-    <div className="p-24">
+    <div  className="flex  items-center justify-around ">
+    <div className= " flex-1 px-24 laptop:px-12">
       <div className="flex flex-col gap-11 justify-center items-center mt-8">
-      <Image src="/images/fulllogo_whitetransparent.png" width={500} height={500} alt="Hero-Image" className="text-center" />
-      <div className="relative w-full min-w-[829px]">
+      <Image src="/images/fulllogo_whitetransparent.png" width={400} height={400} alt="Hero-Image" className="text-center" />
+      <Link href="/tool-listing/1" className="relative w-[80%] ">
         <input
           type="text"
           placeholder="What are you looking for?"
@@ -31,80 +35,86 @@ export default function Home() {
         <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white text-black px-6 py-2 rounded-full hover:bg-gray-200">
           SEARCH
         </button>
-      </div>
+      </Link>
       
     </div>
     </div>
-    <div className="flex flex-col gap-12  px-24 py-10  ">
+    <div className="flex flex-col justify-center gap-y-12  px-24 py-10 text-base laptop:text-xs ">
       
  
-  <div className="w-[484px] text-center flex flex-col justify-center items-center gap-4 border border-[#FFCB9A] rounded-lg px-12 py-8">
+  <div className=" text-center flex flex-col justify-center items-center mr-20 gap-4 border border-[#FFCB9A] shadow-glow rounded-[30px] px-6 py-8">
     <div className="flex bg-transparent">
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={unfilledStar} height={38} width={38} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={unfilledStar} height={28} width={28} alt="star-filled" />
     </div>
-    <p className="text-white">“Never found an easier website to find and discover AI tools”</p>
-    <span className="self-end text-[#5271FF]">- John Doe</span>
+    <p className="text-white text-wrap w-[300px] ">“Never found an easier website to find and discover AI tools”</p>
+    <span className="self-end">- John Doe</span>
   </div>
 
 
-  <div className="w-[484px] text-center flex flex-col justify-center items-center ml-16 gap-4 border border-[#FFCB9A] rounded-lg px-12 py-8">
+  <div className=" text-center flex flex-col justify-center items-center ml-20 gap-4 border border-[#FFCB9A] rounded-[30px] px-6 py-8 shadow-glow">
     <div className="flex bg-transparent">
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={unfilledStar} height={38} width={38} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={unfilledStar} height={28} width={28} alt="star-filled" />
     </div>
-    <p className="text-white">“intuitive user interface and very easy to navigate”</p>
-    <span className="self-end text-[#5271FF]">- John Doe</span>
+    <p className="text-white w-[300px]">“intuitive user interface and very easy to navigate”</p>
+    <span className="self-end">- John Doe</span>
   </div>
 
 
 
-  <div className="w-[484px] text-center flex flex-col justify-center items-center gap-4 border border-[#FFCB9A] rounded-lg px-12 py-8">
+  <div className=" text-center flex flex-col justify-center items-center mr-20 gap-4 border border-[#FFCB9A] rounded-[30px] px-6 py-8 shadow-glow">
     <div className="flex bg-transparent">
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={star} height={38} width={38} alt="star-filled" />
-      <Image src={unfilledStar} height={38} width={38} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={star} height={28} width={28} alt="star-filled" />
+      <Image src={unfilledStar} height={28} width={28} alt="star-filled" />
     </div>
-    <p className="text-white">“Best website for everything AI”</p>
-    <span className="self-end text-[#5271FF]">- John Doe</span>
+    <p className="text-white w-[300px]">“Best website for everything AI”</p>
+    <span className="self-end">- John Doe</span>
   </div>
 
 
       </div>
       </div>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center pb-10">
         <p>Find more AI tools</p>
-        <Image src={bottomArrow}  alt="bottom-arrow" />
+        <Link href="#trending" className={`w-6 h-6 border-b-4 border-r-4 border-gray-400 transform my-6 ${sectionIsVisible ? "rotate-[225deg]" : "rotate-45"} `} onClick={() => setSectionIsVisible(!sectionIsVisible)} />
       </div>
    </section>
-   <section className=" text-white py-4 px-10 my-60">
-    <div className="flex justify-evenly items-center rounded-lg py-5 background-gradient-left-to-right">
-    <span className="text-5xl text-glow">Trending</span>
-    <Card  img={tensorFlow} title="Tensor Flow" type="ML"/>
-    <Card img={h20}  title="H20.ai" type="AutoML"/>
-    </div>
 
-    <div className="flex justify-evenly items-center  rounded-lg py-5 background-gradient-right-to-left my-10">
-    <Card img={pyTorch}  title="PyTorch" type="DeepLearning"/>
-    <Card img={rapidMiner}  title="RapidMiner" type="Analytics"/>
-    <span className="text-5xl text-glow">For You</span>
-    </div>
-    <div className="flex justify-evenly items-center p-4 rounded-lg py-5 background-gradient-left-to-right">
-    <span className="text-5xl text-glow">Featured</span>
-    <Card img={dataRobot}  title="DataRobot" type="Automated"/>
-    <Card img={mlFlow}  title="TensorFlow" type="ML"/>
-    </div>
+   {/* Trending and For you section */}
+   {sectionIsVisible && <> <section className=" text-white py-4 px-10 mt-44 mb-10">
+      <div id="trending" className="flex justify-evenly items-center rounded-lg py-5 background-gradient-left-to-right  shadow-glow">
+        <span className="text-3xl laptop:text-2xl  text-glow">Trending</span>
+        <ToolCard imgUrl={dataBase[0]?.imgUrl} category={dataBase[0]?.category} rating={dataBase[0]?.rating} name={dataBase[0]?.name}  />
+        <ToolCard imgUrl={dataBase[1]?.imgUrl} category={dataBase[1]?.category} rating={dataBase[1]?.rating} name={dataBase[1]?.name}  />
+      </div>
+
+      <div className="flex justify-evenly items-center  rounded-lg py-5 background-gradient-right-to-left my-10  shadow-glow">
+        <ToolCard imgUrl={dataBase[2]?.imgUrl} category={dataBase[2]?.category} rating={dataBase[2]?.rating} name={dataBase[2]?.name}  />
+        <ToolCard imgUrl={dataBase[3]?.imgUrl} category={dataBase[3]?.category} rating={dataBase[3]?.rating} name={dataBase[3]?.name}  />
+        <span className="text-3xl laptop:text-2xl text-glow">For You</span>
+      </div>
+      <div className="flex justify-evenly items-center p-4 rounded-lg py-5 background-gradient-left-to-right  shadow-glow">
+        <span className="text-3xl laptop:text-2xl text-glow">Featured</span>
+        <ToolCard imgUrl={dataBase[4]?.imgUrl} category={dataBase[4]?.category} rating={dataBase[4]?.rating} name={dataBase[4]?.name}  />
+        <ToolCard imgUrl={dataBase[5]?.imgUrl} category={dataBase[5]?.category} rating={dataBase[5]?.rating} name={dataBase[5]?.name}  />
+      </div>
 
    </section>
+
    <Footer />
+   </>
+
+}
    </>
   );
 }

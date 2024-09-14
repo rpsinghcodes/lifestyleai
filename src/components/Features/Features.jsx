@@ -1,6 +1,13 @@
+
+/*
+
+This component is used in custome tool page i.e '/tool/' page;
+
+*/
+
 export default function Features() {
     return (
-        <div className=" px-32  font-sqrt-roman text-2xl">
+        <div className=" px-32  font-sqrt-roman text-base laptop:text-xs">
 
         <p className="py-5">- Generating content from scratch based on your keywords or prompts.</p>
         <p className="py-5">- Rewriting or summarizing your existing texts to make them more clear, concise, or engaging.</p>

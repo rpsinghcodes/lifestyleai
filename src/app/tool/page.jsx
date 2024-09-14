@@ -9,6 +9,7 @@ import chatGpt from "../../../public/images/chatGPT-large.png";
 import Tabs from "@/components/Tabs/Tabs";
 import Footer from "@/components/Footer/Footer";
 import ToolCard from "@/components/ToolCard/ToolCard";
+import dataBase from "../../../public/data/dataBase.json";
 
 export default function ToolDetail(){
     return <>
@@ -22,7 +23,7 @@ export default function ToolDetail(){
                 </div>
                 <div className="flex flex-col">
                     <div className="flex items-center gap-[26px]  ">
-                        <span className="text-5xl font-sqrt">
+                        <span className="text-3xl font-sqrt">
                             Chat GPT
                         </span>
                         <div className="flex bg-transparent">
@@ -33,10 +34,10 @@ export default function ToolDetail(){
                             <Image src={star} alt="star-filled" />
                         </div>
                     </div>
-                    <span className="font-sqrt-roman text-[32px]">
+                    <span className="font-sqrt-roman text-xl">
                         Conversational
                     </span>
-                    <Link href="https://chatgpt.com/" className="font-sqrt-roman text-[32px] mb-[32px] text-[#FFCB9A] underline">
+                    <Link href="https://chatgpt.com/" className="font-sqrt-roman text-xl mb-[32px] text-[#FFCB9A] underline">
                     https://chatgpt.com/
                     </Link>
                     <div className="flex items-center gap-[10px]">
@@ -52,8 +53,8 @@ export default function ToolDetail(){
                 </div>
             </div>
             <div>
-                <span className="font-sqrt text-[32px]">Description</span>
-                <p className="font-sqrt-roman text-2xl mt-3">ChatGPT is an advanced conversational AI developed by OpenAI, based on the GPT-4 architecture. It is designed to understand and generate human-like text, making it suitable for a wide range of applications such as customer support, content creation, tutoring, and more.</p>
+                <span className="font-sqrt text-xl">Description</span>
+                <p className="font-sqrt-roman text-base mt-3">ChatGPT is an advanced conversational AI developed by OpenAI, based on the GPT-4 architecture. It is designed to understand and generate human-like text, making it suitable for a wide range of applications such as customer support, content creation, tutoring, and more.</p>
             </div>
 
         </div>
@@ -66,15 +67,15 @@ export default function ToolDetail(){
     <section className="relative">
     <div className="absolute top-0 w-full h-[4px] bg-gradient-to-r from-transparent via-[#FFCB9A]  to-[#FFCB9A] shadow-glow"></div>
     <div className="py-14 flex flex-wrap gap-10 justify-center items-center">
-        <span className=" text-5xl font-sqrt-roman  text-wrap">
+        <span className=" text-3xl font-sqrt-roman  text-wrap">
         Related
         Tools
         </span>
-        <ToolCard />
-        <ToolCard />
-        <ToolCard />
-        <ToolCard />
-        <ToolCard />
+        <ToolCard {...dataBase[0]} />
+        <ToolCard {...dataBase[1]} />
+        <ToolCard {...dataBase[2]}/>
+        <ToolCard {...dataBase[3]}/>
+        <ToolCard {...dataBase[4]}/>
         
     </div>
     </section>

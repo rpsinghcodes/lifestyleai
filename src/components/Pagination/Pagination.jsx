@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
 
+
+/*
+
+This component allow user to jump to the available pages
+
+*/
+
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     
     return (

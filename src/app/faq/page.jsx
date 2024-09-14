@@ -4,6 +4,15 @@ import SearchBar from "@/components/SearchBar/SearchBar"
 import Accordian from "@/components/Accordian/Accordian"
 import { useState } from "react"
 import Footer from "@/components/Footer/Footer";
+
+
+/*
+
+This is FAQ page where user can see the question and related answer to that at '/faq' route;
+
+*/
+
+// frequently asked question data
 const accordianData = [
         {question:"Can I contribute my own AI tools, videos, blogs, or articles?", answer:"We welcome contributions from the AI community. You can submit your own AI tools for consideration on the website."},
         {question:"How frequently is the content updated?", answer:"Our content is regularly updated to provide users with the latest tools, videos, blogs, and articles in the field of artificial intelligence."},
@@ -22,8 +31,8 @@ export default function FAQ(){
         <>
         <Header />
         <SearchBar />
-        <section className="px-[298px] py-[100px] text-white">
-            <h1 className="text-5xl pb-[85px]">FAqs</h1>
+        <section className="px-[298px] laptop:px-[98px] py-[100px] laptop:py-[50px] text-white">
+            <h1 className="text-3xl laptop:text-2xl pb-[85px]">FAqs</h1>
             {/* Accordian */}
             <div>
                 {accordianData.map((item, index) =>  <Accordian key={item.question} {...item} isOpen={isOpen === index}  onClick={() =>handleAccordian(index)} />)}

@@ -92,74 +92,76 @@ export default function Categories({params}){
             <Header />
             <SearchBar onChange={handleOnChange}/>
             <p className="px-20 mt-[75px]">Here are the top 3 AI tools based on your request. To further help choose the best tool for you we have collated comparisons based on the following;</p>
-            <div className="py-10 flex justify-center items-center gap-[30px] text-xl font-sqrt-roman">
+            <div className="py-10 flex justify-center items-center gap-[30px] text-sm font-sqrt-roman">
                 <button className={`border-4 rounded-full py-2 px-3 ${active === "Price" && "bg-glow-light  border-glow-dark shadow-glow"} `} onClick={() => toggleActive("Price")}>Price</button>
                 <button className={`border-4 rounded-full py-2 px-3 ${active ==="Features" && "bg-glow-light  border-glow-dark shadow-glow"} ` } onClick={() => toggleActive("Features")}>Features</button>
                 <button className={`border-4 rounded-full py-2 px-3 ${active ==="Reviews" && "bg-glow-light  border-glow-dark shadow-glow"} ` } onClick={() => toggleActive("Reviews")}>Reviews</button>
             </div>
-            <div className="flex gap-[15px] px-[67px] items-stretch justify-center">
+            <div className="flex gap-[15px] laptop:gap-[6px] px-[67px] laptop:px-[12px] items-stretch justify-center">
                 <div>
-                    <ToolCard {...baseData[5]} />
+                
+                    <ToolCard {...baseData[0]}  />
+                
                     <div className="flex flex-col mt-[52px]">
-                        <span className="text-[32px] font-sqrt-roman">Free</span>
-                        <span className="text-2xl font-sqrt-roman" >Free</span>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Free</span>
+                        <span className="text-base font-sqrt-roman" >Free</span>
                         <hr className="w-[50%] self-center my-5" />
-                        <span className="text-[32px] font-sqrt-roman">Plus</span>
-                        <span className="text-2xl font-sqrt-roman" >$10/month</span>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Plus</span>
+                        <span className="text-base font-sqrt-roman" >$10/month</span>
                         <hr className="w-[50%] self-center my-5" />
-                        <span className="text-[32px] font-sqrt-roman">Team</span>
-                        <span className="text-2xl font-sqrt-roman" >$30/person/month</span>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Team</span>
+                        <span className="text-base font-sqrt-roman" >$30/person/month</span>
                         <hr className="w-[50%] self-center my-5" />
-                        <span className="text-[32px] font-sqrt-roman">Enterprise</span>
-                        <span className="text-2xl font-sqrt-roman" >Contact Sales</span>
-                    </div>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Enterprise</span>
+                        <span className="text-base font-sqrt-roman" >Contact Sales</span>
+                </div>
                 </div>
 
 
-                <div className="border-l-2 border-gray-600"></div>
+                <div className="border-l-2 border-gray-600" />
                 <div>
                     <ToolCard {...baseData[1]} />
                     <div className="flex flex-col mt-[52px]">
-                        <span className="text-[32px] font-sqrt-roman">Free</span>
-                        <span className="text-2xl font-sqrt-roman" >Free</span>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Free</span>
+                        <span className="text-base font-sqrt-roman" >Free</span>
                         <hr className="w-[50%] self-center my-5" />
-                        <span className="text-[32px] font-sqrt-roman">Pro Plan</span>
-                        <span className="text-2xl font-sqrt-roman" >$9/month</span>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Pro Plan</span>
+                        <span className="text-base font-sqrt-roman" >$9/month</span>
                         <hr className="w-[50%] self-center my-5" />
-                        <span className="text-[32px] font-sqrt-roman">Enterprise Plan</span>
-                        <span className="text-2xl font-sqrt-roman" >Custom Pricing</span>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Enterprise Plan</span>
+                        <span className="text-base font-sqrt-roman" >Custom Pricing</span>
                     </div>
                 </div>
 
-                <div className="border-l-2 border-gray-600"></div>
+                <div className="border-l-2 border-gray-600" />
                 <div>
-                   <ToolCard {...baseData[2]} />
+                   <ToolCard {...baseData[8]} />
                     <div className="flex flex-col mt-[52px]">
-                        <span className="text-[32px] font-sqrt-roman">Lite</span>
-                        <span className="text-2xl font-sqrt-roman" >Free</span>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Lite</span>
+                        <span className="text-base font-sqrt-roman" >Free</span>
                         <hr className="w-[50%] self-center my-5" />
-                        <span className="text-[32px] font-sqrt-roman">Plus</span>
-                        <span className="text-2xl font-sqrt-roman" >$140/month</span>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Plus</span>
+                        <span className="text-base font-sqrt-roman" >$140/month</span>
                         <hr className="w-[50%] self-center my-5" />
-                        <span className="text-[32px] font-sqrt-roman">Enterprise</span>
-                        <span className="text-2xl font-sqrt-roman" >Custom Pricing</span>
+                        <span className="text-xl laptop:text-base font-sqrt-roman">Enterprise</span>
+                        <span className="text-base font-sqrt-roman" >Custom Pricing</span>
                     </div>
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center space-y-2 mt-[30px] mb-[100px]">
-                <p className="text-white text-lg">Find more AI tools</p>
+                <p className="text-white text-xs">Find more AI tools</p>
                 <div className="w-6 h-6 border-b-4 border-r-4 border-gray-400 transform rotate-45"></div>
             </div>
             <div className="flex justify-around items-center">
                 <span></span>
-                <span className="text-[64px]">AI Tools</span>
+                <span className="text-4xl">AI Tools</span>
                 <span className="flex gap-10">
-                   <span className="px-3 py-[6px] border rounded-[17px] flex items-center text-[32px] font-sqrt-roman gap-[11px]">
+                   <span className="px-3 py-[6px] border rounded-[17px] flex items-center text-xl font-sqrt-roman gap-[11px]">
                          <span>Filter</span>
                         <Image src={filter} alt="filter logo"  onClick={() => setIsFilterOpen(!isFilterOpen)} />
                         <Filter open={isFilterOpen} close={setIsFilterOpen} />
                     </span>
-                   <span className="px-3 py-[6px] border rounded-[17px] flex items-center text-[32px] font-sqrt-roman gap-[11px]">
+                   <span className="px-3 py-[6px] border rounded-[17px] flex items-center text-xl font-sqrt-roman gap-[11px]">
                     <span>Sort</span>
                     <Sort open={displaySortBy}  close={setDisplaySortBy} data={sortBy}/>
                     <Image src={sort} alt="filter logo" onClick={() => setDisplaySortBy(true)} />

@@ -1,8 +1,13 @@
 import Image from "next/image";
 
-import tensorFlow from "../../../public/images/tensorFlow.png";
 import saveIcon from "../../../public/icons/save-icon.svg";
 import star from "../../../public/icons/star-filled.svg"
+
+/*
+
+This component is not in use
+
+*/
 
 export default function Card({img, title, type}) {
     return <div className="flex flex-col items-center gap-2 border-2 rounded-lg px-8 py-2 ">

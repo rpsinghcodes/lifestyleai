@@ -5,10 +5,10 @@ export default function SignupPage(){
         <div className="flex justify-around items-center h-screen">
             <div className="max-w-[663px] text-center flex justify-center items-center flex-col">
                 <Image src="/images/fulllogo_whitetransparent.png" width={414} height={158} alt="Logo " />
-                <span className="text-[64px]  ">FIND THE AI TOOL YOU NEED</span>
+                <span className="text-4xl  ">FIND THE AI TOOL YOU NEED</span>
             </div>
-            <div className="flex gap-[15px] flex-col text-xl">
-                <span className="text-[32px] mb-10">sign up</span>
+            <div className="flex gap-[15px] flex-col text-sm">
+                <span className="text-xl mb-10">sign up</span>
                 <div className="flex gap-5">
                     <input type="text" name="firstName" placeholder="First Name" className="rounded-full  py-5 px-10 bg-transparent border-[4px]"/>
                     <input type="text" name="lastName" placeholder="Last Name" className="rounded-full  py-5 px-10 bg-transparent border-[4px]" />
