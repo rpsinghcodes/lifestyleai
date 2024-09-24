@@ -1,5 +1,6 @@
-import Header from "@/components/Header/Header";
 import Image from "next/image";
+import Link from "next/link";
+import Header from "@/components/Header/Header";
 import googleImage from "../../../public/images/google-icon.png"
 import linkedInImage from "../../../public/images/linkedin-icon2.png"
 import emailImage from "../../../public/images/email-icon.png"
@@ -45,7 +46,7 @@ export default function Login(){
                 <span className="underline text-[#FFCB9A]">Forgot Password</span> or <span className="underline text-[#FFCB9A]">Forgot Username </span>
             </span>
             <span className="text-base font-sqrt-roman my-[60px] ">                
-            Don’t have an account? <span className="underline text-[#FFCB9A]"> Click here  </span>
+            Don’t have an account? <Link href="/signup" className="underline text-[#FFCB9A]"> Click here  </Link>
             </span>
             </div>
         </>

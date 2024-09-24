@@ -15,22 +15,23 @@ This component is widely used in all the pages
 */
 
 export default function Footer(){
+    const socialIconClass = "size-[20px] laptopSmall:size-[18px]"
     return <footer className="flex items-center justify-between px-2 text-white footer-gradient py-8 font-sqrt-roman">
         <div className="flex items-center gap-6">
             <div className=" rounded-full">
-                <Image src={logo} height={46} width={46} alt="logo" />
+                <Image src={logo}  alt="logo" className="size-[46px] laptopSmall:size-[36px]" />
             </div>
-            <Image src={heroIcon} height={47} width={135} alt="logo" />
-            <p className="w-[504px] text-sm laptop:text-xs ml-[75px]">Empowering users with the best AI tools and resources, curated for everyday needs. LifestAile, AI for a more productive You</p>
+            <Image src={heroIcon} height={47} width={135} alt="logo"  className="h-[47px] w-[135px] laptopSmall:h-[37px] laptopSmall:w-[125px]" />
+            <p className="w-[504px] text-sm laptop:text-xs laptopSmall:text-[16px] ml-[75px]">Empowering users with the best AI tools and resources, curated for everyday needs. LifestAile, AI for a more productive You</p>
         </div>
         <div className="flex flex-col justify-evenly grow items-center gap-4">
-            <span className="text-base laptop:text-sm">Contact Us</span>
+            <span className="text-base laptop:text-sm laptopSmall:text-[16px]">Contact Us</span>
             <div className="flex gap-8">
-                <Link href="#lj"><Image src={mailIcon} height={20} width={20} alt="logo" /></Link>
-                <Link href="#lj"><Image src={xIcon} height={20} width={20} alt="logo" /></Link>
-                <Link href="#lj"><Image src={instaIcon} height={20} width={20} alt="logo" /></Link>
-                <Link href="#lj"><Image src={tiktok} height={20} width={20} alt="logo" /></Link>
-                <Link href="#lj"><Image src={linkedIn} height={20} width={20} alt="logo" /></Link>    
+                <Link href="#lj"><Image src={mailIcon} alt="logo" className={socialIconClass} /></Link>
+                <Link href="#lj"><Image src={xIcon} alt="logo" className={socialIconClass} /></Link>
+                <Link href="#lj"><Image src={instaIcon} alt="logo" className={socialIconClass} /></Link>
+                <Link href="#lj"><Image src={tiktok} alt="logo" className={socialIconClass} /></Link>
+                <Link href="#lj"><Image src={linkedIn} alt="logo" className={socialIconClass} /></Link>    
             
             
             

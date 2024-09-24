@@ -17,7 +17,7 @@ export default function InviteFriend(){
     const { isInviteOpen, setIsInviteOpen } = useGlobalState();    
     const socialIconsClass = "flex gap-2 items-center  py-[2px] pr-2 rounded-full invite-gradient"
     return(
-        <dialog open={isInviteOpen} className="w-[1000px] z-40 mt-12  my-auto rounded-[73px] overflow-hidden text-white text-base bg-[#116466]" >
+        <dialog open={isInviteOpen} className="w-[1000px] z-40 mt-12  my-auto rounded-[73px] overflow-hidden text-white text-base bg-[#116466]">
             <div className="flex justify-around  py-7">
                 <span></span>
             <h1 className="text-lg laptop:text-base">Invite A Friend!</h1>

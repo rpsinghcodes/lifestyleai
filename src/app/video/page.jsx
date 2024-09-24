@@ -3,6 +3,7 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import SearchBar from "@/components/SearchBar/SearchBar";
+import VideoContainer from "@/components/VideoContainer/VideoContainer";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -179,10 +180,15 @@ const videoData = {
 
 
 export default function VidePage(){
+    const headingStyle = "text-center text-3xl laptopSmall:text-xl  py-14";
+    const hrStyle = "h-[2px] w-[480px] laptopSmall:w-[380px] bg-white";
+    const seeMoreBtnStyle = "text-lg laptopSmall:text-base cursor-pointer";
     const [forYouPageNumber, setForYouPageNumber] = useState(1)
     const [trendingVideoPageNumber, setTrendingVideoPageNumber ] = useState(1);
     const [newVideoPageNumber, setNewVideoPageNumber] = useState(1);
     const videoPerPage = 6;
+
+    
 
     const [featuredVideos, setFeaturedVideo] = useState(videoData.featured);
 
@@ -205,11 +211,11 @@ export default function VidePage(){
         <SearchBar onChange={handleChange} />
         <section className="p-20 laptop:p-10">
 
-            <div className="flex gap-7 justify-around p-[84px] laptop:p-[40px]">
-                <Link href="https://www.youtube.com/watch?v=H-MDGBegBBk" className="w-[1044px] laptop:w-auto h-[587px] laptop:h-auto bg-[url('/images/featuredImageMain.png')] flex  flex-col justify-end rounded-[36px] overflow-hidden" target="_blank">
-                <div className="featured-video-gradient p-0  h-full flex text-lg laptop:text-sm">
+            <div className="flex gap-7 justify-around p-[84px] laptop:p-[40px] laptopSmall:p-5">
+                <Link href="https://www.youtube.com/watch?v=H-MDGBegBBk" className="w-[1044px] laptop:w-auto h-[587px] laptop:h-auto bg-[url('/images/featuredImageMain.png')]  bg-center flex  flex-col justify-end rounded-[36px] overflow-hidden" target="_blank">
+                <div className="featured-video-gradient p-0  h-full flex text-lg laptop:text-sm  laptopSmall:text-[12px]">
                     <div className="mt-auto w-[80%] flex flex-col gap-3 pb-3 pl-8">
-                        <h2 className="text-2xl laptop:text-base">AI Generated Videos Just Changed Forever</h2>
+                        <h2 className="text-2xl laptop:text-base laptopSmall:text-xs">AI Generated Videos Just Changed Forever</h2>
                         <span className="font-sqrt-roman">Marques Brownlee</span>
                         <span className="flex items-center gap-2  font-sqrt-roman ">
                         <span>8.6M views</span>
@@ -221,12 +227,12 @@ export default function VidePage(){
 
                 </Link>
                 <div className="flex flex-col gap-8 laptop:gap-4">
-                    {featuredVideos?.slice(0, 3).map(item => <Link href={item?.link} key={item.slug} className="flex w-[679px] gap-3" target="_blank">
-                        <div className="relative rounded-[60px] min-w-[315px] h-[177px] overflow-hidden">
+                    {featuredVideos?.slice(0, 3).map(item => <Link href={item?.link} key={item.slug} className="flex w-[679px] laptopSmall:w-[500px] gap-3" target="_blank">
+                        <div className="relative rounded-[60px] laptopSmall:rounded-[32px] min-w-[315px] h-[177px] laptopSmall:h-[130px] laptopSmall:min-w-[232px] overflow-hidden">
                             <Image loading="lazy" src={item.img} alt={item.slug} fill className="object-fill" />
                         </div>
-                        <div className="font-sqrt">
-                            <h2 className="text-base laptop:text-sm font-bold text-wrap">{item.slug}</h2>
+                        <div className="font-sqrt laptopSmall:text-[12px]">
+                            <h2 className="text-base laptop:text-sm laptopSmall:text-xs font-bold text-wrap">{item.slug}</h2>
                             <span className="font-sqrt-roman">{item.channel}</span>
                             <div className="flex items-center gap-3 font-sqrt-roman ">
                                 <span>{item.views} views</span>
@@ -242,76 +248,44 @@ export default function VidePage(){
             </div>
         </section>
         {/* For you section */}
-        <section className="px-[162px] py-12">
-            <h1 className="text-center text-3xl py-14">For You</h1>
+        <section className="px-[162px] laptopSmall:px-[40px] py-12">
+            <h1 className={headingStyle}>For You</h1>
+            
             <div className="flex gap-16 flex-wrap justify-center">
-                {videoData.forYou.slice(0, (forYouPageNumber* videoPerPage)).map(item => <Link key={item.slug} className="w-[482px]" href={item?.link || "google.com"} target="_blank">
-                    <Image loading="lazy" src={item.img} width={482} height={267} alt={item.slug} className="rounded-[36px] overflow-hidden"/>
-                    <div className="px-8 py-3">
-                        <h3 className="text-base laptop:text-sm">{item.slug}</h3>
-                        <span className="font-sqrt-roman ">{item.channel}</span>                    
-                        <span className="flex items-center gap-2 text-sm laptop:text-xs font-sqrt-roman  ">
-                            <span>{item.views}views</span>
-                            <span className="h-2 w-2 rounded-full bg-white"></span>
-                            <span>{item.date}</span>
-                        </span>          
-                        </div>          
-                </Link>
-
-                )}
+                {videoData.forYou.slice(0, (forYouPageNumber* videoPerPage)).map(item => <VideoContainer key={item.link} img={item.img} href={item.link} slug={item.slug} channel={item.channel} views={item.views} date={item.date} />              )}
             </div>
             <div className={`flex flex-col justify-center items-center py-28 gap-12 ${(videoData.forYou.slice(0, (forYouPageNumber * videoPerPage))).length >= (videoData.forYou).length && "hidden"}`} >
-                <span href="#lkljk" className="text-lg cursor-pointer" onClick={() => setForYouPageNumber(prevData => prevData + 1)}>See more</span>
-                <hr className="h-[2px] w-[480px] bg-white"/>
+                <span className={seeMoreBtnStyle} onClick={() => setForYouPageNumber(prevData => prevData + 1)}>See more</span>
+                <hr className={hrStyle}/>
             </div>
         </section>
 
         {/* Trending Section */}
-        <section className="px-[162px] py-12">
-        <h1 className="text-center text-3xl py-14">Trending</h1>
+        <section className="px-[162px] laptopSmall:px-[40px] py-12">
+        <h1 className={headingStyle}>Trending</h1>
+        
         <div className="flex gap-16 laptop:gap-8 flex-wrap justify-center">
-                {videoData.trending.slice(0, (trendingVideoPageNumber* videoPerPage)).map(item => <Link href={item.link} key={item.slug} className="w-[482px]" target="_blank">
-                    <Image loading="lazy" src={item.img} width={482} height={267} alt={item.slug} className="rounded-[36px] overflow-hidden"/>
-                    <div className="px-8 py-3">
-                    <h3 className="text-base laptop:text-xs">{item.slug}</h3>
-                    <span className="font-sqrt-roman">{item.channel}</span>                    
-                    <span className="flex items-center gap-2 text-sm laptop:text-xs font-sqrt-roman   ">
-                        <span>{item.views}views</span>
-                        <span className="h-2 w-2 rounded-full bg-white"></span>
-                        <span>{item.date}</span>
-                        </span>          
-                        </div>          
-                </Link>
+                {videoData.trending.slice(0, (trendingVideoPageNumber* videoPerPage)).map(item => <VideoContainer key={item.link} img={item.img} href={item.link} slug={item.slug} channel={item.channel} views={item.views} date={item.date} /> 
 
                 )}
             </div>
             <div className={`flex flex-col justify-center items-center py-28 gap-12 ${(videoData.trending.slice(0, (trendingVideoPageNumber * videoPerPage))).length >= (videoData.trending).length && "hidden"}`} >
-                <button  className="text-lg laptop:text-base cursor-pointer" onClick={() => setTrendingVideoPageNumber(prevData => prevData + 1)}>See more</button>
-                <hr className="h-[2px] w-[480px] bg-white"/>
+                <button  className={seeMoreBtnStyle} onClick={() => setTrendingVideoPageNumber(prevData => prevData + 1)}>See more</button>
+                <hr className={hrStyle}/>
             </div>
         </section>
         {/* New Video Section */}
-        <section className="px-[162px] py-12">
-        <h1 className="text-center text-3xl py-14">New Videos</h1>
+        <section className="px-[162px] laptopSmall:px-[40px] py-12">
+        <h1 className={headingStyle}>New Videos</h1>
+        
         <div className="flex gap-16 flex-wrap justify-center">
-                {videoData.newVideo.slice(0, (newVideoPageNumber*videoPerPage)).map(item => <Link href={item.link} key={item.slug} className="w-[482px]" target="_blank">
-                    <Image loading="lazy" src={item.img} width={482} height={267} alt={item.slug} className="rounded-[36px] overflow-hidden"/>
-                    <div className="px-8 py-3">
-                    <h3 className="text-base laptop:text-xs">{item.slug}</h3>
-                    <span className="font-sqrt-roman">{item.channel}</span>                    
-                    <span className="flex items-center gap-2 text-sm laptop:text-xs font-sqrt-roman  ">
-                        <span>{item.views}views</span>
-                        <span className="h-2 w-2 rounded-full bg-white"></span>
-                        <span>{item.date}</span>
-                        </span>          
-                        </div>          
-                </Link>
+                {videoData.newVideo.slice(0, (newVideoPageNumber*videoPerPage)).map(item => <VideoContainer key={item.link} img={item.img} href={item.link} slug={item.slug} channel={item.channel} views={item.views} date={item.date} /> 
 
                 )}
             </div>
             <div className={`flex flex-col justify-center items-center py-28 gap-12 ${(videoData.forYou.slice(0, (newVideoPageNumber * videoPerPage))).length >= (videoData.newVideo).length && "hidden"}`} >
-                <button className="text-lg cursor-pointer " onClick={() => setNewVideoPageNumber(prevData => prevData + 1)}>See more</button>
-                <hr className="h-[2px] w-[480px] bg-white"/>
+                <button className={seeMoreBtnStyle} onClick={() => setNewVideoPageNumber(prevData => prevData + 1)}>See more</button>
+                <hr className={hrStyle}/>
             </div>
         </section>
         <Footer />

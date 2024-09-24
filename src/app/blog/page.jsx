@@ -67,46 +67,48 @@ export default function BlogPage(){
         <>
         <Header />        
 
-      <section className="text-white px-16 my-14 flex gap-14 justify-center">
+      <section className="text-white px-16 laptopSmall:px-4 my-14 flex gap-14 laptopSmall:gap-7 justify-start items-start">
         {/* This Week section */}
         <Link  href="https://medium.com/age-of-awareness/teaching-during-the-rise-of-ai-and-the-end-of-reading-068a6515318f" target="_blank">
-            <h1 className="text-4xl laptop:text-3xl">This Week</h1>
+            <h1 className="text-4xl laptop:text-3xl laptopSmall:text-xl">This Week</h1>
             <div className="mt-7">
-                <Image src={blogData.thisWeek[0].img} alt="Blog" width={780} height={456}  />
-                <h3 className="text-xl font-sqrt">{blogData.thisWeek[0].slug}</h3>
-                <p className="text-base font-sqrt-roman">{blogData.thisWeek[0].title}</p>
-                <span className="text-base font-sqrt-roman">{blogData.thisWeek[0].date}</span>
+              <div className="relative laptopSmall:h-[420px] w-[400px]">
+                <Image src={blogData.thisWeek[0].img} alt="Blog" fill  />
+                </div>
+                <h3 className="text-xl laptopSmall:text-base font-sqrt">{blogData.thisWeek[0].slug}</h3>
+                <p className="text-base laptopSmall:text-sm font-sqrt-roman">{blogData.thisWeek[0].title}</p>
+                <span className="text-base laptopSmall:text-sm  font-sqrt-roman">{blogData.thisWeek[0].date}</span>
             </div>
         </Link>
         {/* Recent Blog section */}
         <div>
-        <h1 className="font-sqrt-roman text-3xl laptop:text-2xl w-[847px]">Recent Blogs and Articles</h1>
+        <h1 className="font-sqrt-roman text-3xl laptop:text-2xl laptopSmall:text-lg w-[847px] laptopSmall:w-auto">Recent Blogs and Articles</h1>
         <div className="mt-7">
-            {blogData?.recent?.map(item => <Link href={item.url} key={item.slug} className="flex  items-center gap-3 mb-8" target="_blank">
+            {blogData?.recent?.map(item => <Link href={item.url} key={item.slug} className="flex  items-center gap-3 laptopSmall:gap-1 mb-8" target="_blank">
             <Image src={item.img} alt="Blog" width={200} height={200} />
-            <div className="flex flex-col font-sqrt p-3 w-[636px]">
-                <h3 className="text-xl last:text-lg font-sqrt">{item.slug}</h3>
-                <p className="text-base laptop:text-sm font-sqrt-roman">{item.title}</p>
-                <span className="text-base laptop:text-sm font-sqrt-roman">{item.date}</span>
+            <div className="flex flex-col font-sqrt p-3 w-[636px] laptopSmall:w-[466px]">
+                <h3 className="text-xl last:text-lg laptopSmall:text-base font-sqrt">{item.slug}</h3>
+                <p className="text-base laptop:text-sm laptopSmall:text-xs font-sqrt-roman">{item.title}</p>
+                <span className="text-base laptop:text-sm laptopSmall:text-xs font-sqrt-roman">{item.date}</span>
             </div>
             </Link>)}
             
         </div>
         </div>
       </section>
-
-      <section className="text-white px-16 my-14">
-        <h1 className="font-sqrt text-3xl laptop:text-2xl">Quick Reads</h1>
+              {/* Quick Read Section */}
+      <section className="text-white px-16 laptopSmall:px-4 my-14">
+        <h1 className="font-sqrt text-3xl laptop:text-2xl laptopSmall:text-xl">Quick Reads</h1>
         <SearchBar  onChange={handleOnChange} />
-        <div className="flex justify-center gap-14 p-16">
+        <div className="flex justify-center gap-14 laptopSmall:gap-3  p-16 laptopSmall:p-8 flex-wrap">
           {/* Attention: Temporary color i.e bg-green-300 */}
-        {filteredData?.map(item => <Link key={item.slug} href={item?.link || "newlink"} target="_blank" className="p-3 pb-20 rounded-[60px] bg-transparent shadow-2xl w-[461px]  max-w-[460px] pricing-gradient overflow-hidden"> 
-          <div className="relative min-h-[437px] laptop:min-h-[337px] min-w-[313px] laptop:min-w-[213px] overflow-hidden rounded-[60px]">
+        {filteredData?.map(item => <Link key={item.slug} href={item?.link || "newlink"} target="_blank" className="p-3 pb-20 rounded-[60px] bg-transparent shadow-2xl w-[461px]  max-w-[460px] laptopSmall:max-w-[300px] pricing-gradient overflow-hidden"> 
+          <div className="relative min-h-[437px] laptop:min-h-[337px] min-w-[313px] laptop:min-w-[213px] laptopSmall:min-h-[250px]  overflow-hidden rounded-[60px]">
             <Image src={item.img} alt="Blog" className=" object-cover" fill={true}/>
           </div>
-          <h2 className="text-xl laptop:text-base font-sqrt">{item.slug}</h2>
-          <h3 className="text-base laptop:text-sm font-sqrt-roman">{ item.title.length > 50 ?  `${item.title.slice(0, 50)}...` : item.title }</h3>
-          <span className="text-base laptop:text-sm font-sqrt-roman">{item.date}</span>
+          <h2 className="text-xl laptop:text-base laptopSmall:text-sm font-sqrt">{item.slug}</h2>
+          <h3 className="text-base laptop:text-sm laptopSmall:text-xs font-sqrt-roman">{ item.title.length > 50 ?  `${item.title.slice(0, 50)}...` : item.title }</h3>
+          <span className="text-base laptop:text-sm laptopSmall:text-xs font-sqrt-roman">{item.date}</span>
 
           </Link>
         )}

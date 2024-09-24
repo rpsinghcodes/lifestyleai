@@ -48,7 +48,7 @@ export default function Categories(){
     return<>
     <Header />
     <section className="flex flex-col justify-center items-center py-[75px]  gap-12">
-    <h1 className="text-3xl laptop:text-2xl text-glow">Categories</h1>
+    <h1 className="text-3xl laptop:text-2xl laptopSmall:text-xl text-glow">Categories</h1>
     <SearchBar onChange={handleChange} />
     <div className="flex flex-col items-center justify-center gap-14 laptop:gap-10 w-full px-[100px] laptop:px-[50px] text-center text-base laptop:text-sm ">
         {groupedCategories.map((row, rowIndex) => (

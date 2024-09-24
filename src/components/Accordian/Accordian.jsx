@@ -8,8 +8,8 @@ export default function Accordian({question, answer, isOpen, onClick}){
         return (
         <div onClick={onClick}>
                 <div className="flex justify-between items-center gap-36">
-                    <h1 className="text-2xl laptop:text-xl font-sqrt">{question}</h1>
-                    <div className="relative w-12 h-12  flex justify-center items-center transition-all">
+                    <h1 className="text-2xl laptop:text-xl laptopSmall:text-base font-sqrt">{question}</h1>
+                    <div className="relative size-12  flex justify-center items-center transition-all">
     
                 <div className="absolute w-8 h-2 bg-white rounded-full"></div>
                 
@@ -17,8 +17,8 @@ export default function Accordian({question, answer, isOpen, onClick}){
             </div>
                         
                 </div>
-                <p className={`pt-[15px] pb-[30px] w-[1047px] ${!isOpen ? "hidden" : ''}`}>{answer}</p>
-                <hr className="h-0.5 w-[1324px] my-[30px]" />
+                <p className={`pt-[15px] pb-[30px] w-[1047px] laptopSmall:w-auto ${!isOpen ? "hidden" : ''}`}>{answer}</p>
+                <hr className="h-0.5 w-[1324px] my-[30px] laptop:w-auto" />
                 </div>
     )
 }

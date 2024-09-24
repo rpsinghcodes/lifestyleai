@@ -21,6 +21,7 @@ export default function Header() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
     const [isComparisionDropdownOpen, setComparisionDropdownOpen] = useState(false);
     const [isUserDropdownOpen, setUserDropdownOpen] = useState(false);
+    const [isUserLogedIn, setUserLogedIn] = useState(false);
     const dropdownRef = useRef(null);
 
     function toggleDropdown(){
@@ -41,7 +42,6 @@ export default function Header() {
         setIsDropdownOpen(false);
         setComparisionDropdownOpen(false);
         setUserDropdownOpen(false);
-        setIsInviteOpen(false);
       }
     }
 
@@ -53,7 +53,7 @@ export default function Header() {
       };
     }, []);
 
-    return <header ref={dropdownRef} className="header-gradient relative  text-white flex items-center justify-between p-4">        
+    return <header ref={dropdownRef} className="header-gradient relative text-white flex items-center justify-between p-4 laptopSmall:p-2">        
         <Link href="/">
           <Image src="/images/applogo_whitetransparent.png"  height={46} width={46} alt="lifestalle-logo" />
         </Link>
@@ -69,8 +69,8 @@ export default function Header() {
                     <hr className="w-1/2 " />
                     <li className="p-2"><Link href="/faq">FAQs</Link></li>
                   </ul>
-          </div>
-      )}</li>
+                </div>
+              )}</li>
             <li><Link href="/categories">Categories </Link></li>
             <li className="relative cursor-pointer" onClick={toggleComparisionDropdownOpen}>Comparision{isComparisionDropdownOpen && <div className=" absolute    mt-6 bg-[#062829] z-10 text-white  p-2 rounded shadow-lg  px-6 rounded-b-[20px]">
                 
@@ -119,14 +119,19 @@ export default function Header() {
             
         </nav>
         
-        
+        {isUserLogedIn ? "" :""}
         <div className="flex items-center decoration gap-4">
+          {isUserDropdownOpen ? <div className="flex items-center decoration gap-4">
             <span>john doe</span>
             <Image src='/images/Ellipse7.png' alt="ellise" width={50} height={50} />
+          </div> : <Link href="/login"><span>Login/sign up</span></Link>}
+          
         <div className="flex flex-col items-center justify-center relative" >
-            <span  onClick={toggleUserDropdown}  className="h-[2px] w-[24px]  bg-white block cursor-pointer"></span>
-            <span onClick={toggleUserDropdown} className="h-[2px] w-[24px] m-[4px] bg-white block cursor-pointer"></span>
-            <span  onClick={toggleUserDropdown} className="h-[2px] w-[24px]  bg-white block cursor-pointer"></span>
+          <div onClick={toggleUserDropdown} className="flex flex-col items-center justify-center relative cursor-pointer">
+            <span  className="h-[2px] w-[24px]  bg-white block cursor-pointer"></span>
+            <span className="h-[2px] w-[24px] m-[4px] bg-white block cursor-pointer"></span>
+            <span  className="h-[2px] w-[24px]  bg-white block cursor-pointer"></span>
+          </div>
             {isUserDropdownOpen && <div className=" absolute right-[2px] top-3 w-[419px]   z-10  mt-6  bg-[#062829] text-white  p-2 rounded shadow-lg">
           <ul className="flex flex-col px-[50px] text-base ">
             <li className="p-2" onClick={toggleUserDropdown}> <Link href="/myAccount"> My Account </Link></li>

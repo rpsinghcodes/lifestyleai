@@ -59,22 +59,22 @@ export default function Account(){
             <div className="max-w-[347px] flex flex-col justify-center items-center  ">
                 <span onClick={() => updateSection("my-account")}   className={`${listClass} px-2 ${section === "my-account" && "bg-[#116466]"} `}>My Account</span>
                 <div className="relative">
-                <button className={`${listClass}  ${(section === "bookmark-tools" || section === "bookmark-history" || section === "bookmark-blog-and-articles") && "bg-[#116466]"} relative`} onClick={() => setBookMarkIsOpen(!bookmarkIsOpen)}>Bookmarks</button>
+                <button className={`${listClass}  ${(section === "bookmark-tools" || section === "bookmark-history" || section === "bookmark-blog-and-articles") && "bg-[#116466]"} relative`} onClick={() => {setBookMarkIsOpen(!bookmarkIsOpen); setHistoryIsOpen(false)}}>Bookmarks</button>
                     {bookmarkIsOpen && (
                         <div className="absolute bg-[#116466] top-16 flex flex-col gap-3  rounded p-2 z-10">
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("bookmark-tools"); setBookMarkIsOpen(!bookmarkIsOpen)}}>Bookmarked Tools</span>
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200"onClick={() => {updateSection("bookmark-history"); setBookMarkIsOpen(!bookmarkIsOpen)}}>Bookmarked Videos</span>
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200"onClick={() => {updateSection("bookmark-blog-and-articles"); setBookMarkIsOpen(!bookmarkIsOpen)}}>Bookmarked Blogs and Articles</span>
+                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("bookmark-tools"); setBookMarkIsOpen(!bookmarkIsOpen);}}>Tools</span>
+                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200"onClick={() => {updateSection("bookmark-history"); setBookMarkIsOpen(!bookmarkIsOpen);}}>Videos</span>
+                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200"onClick={() => {updateSection("bookmark-blog-and-articles"); setBookMarkIsOpen(!bookmarkIsOpen);}}>Blogs and Articles</span>
                         </div>
                     )}
                 </div>
                 <div className="relative w-full">
-                <button className={`${listClass} relative ${(section === "tool-history" || section === "videos-history" || section === "history-blog-and-articles") && "bg-[#116466]"}`} onClick={() => setHistoryIsOpen(!historyIsOpen)}>History</button>
+                <button className={`${listClass} relative ${(section === "tool-history" || section === "videos-history" || section === "history-blog-and-articles") && "bg-[#116466]"}`} onClick={() => {setHistoryIsOpen(!historyIsOpen); setBookMarkIsOpen(false);}}>History</button>
                     {historyIsOpen && (
                         <div className="absolute bg-[#116466] top-16 flex flex-col gap-3  rounded p-2 z-10">
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("tool-history"); setHistoryIsOpen(!historyIsOpen)}}>Tool History</span>
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("videos-history"); setHistoryIsOpen(!historyIsOpen)}}>Video History</span>
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("history-blog-and-articles"); setHistoryIsOpen(!historyIsOpen)}}>Blog and Article History</span>
+                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("tool-history"); setHistoryIsOpen(!historyIsOpen); }}>Tool</span>
+                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("videos-history"); setHistoryIsOpen(!historyIsOpen); }}>Video</span>
+                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("history-blog-and-articles"); setHistoryIsOpen(!historyIsOpen); }}>Blog and Article</span>
                         </div>
                     )}
                 </div>

@@ -34,7 +34,8 @@ module.exports = {
     },
     screens: {
       'desktop':{"max":"1950px"},
-      'laptop':{'max':"1540px"}
+      'laptop':{'max':"1540px"},
+      'laptopSmall':{"max":"1281px"}
     }
   },
   },

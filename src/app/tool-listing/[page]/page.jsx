@@ -19,7 +19,8 @@ export default function ToolListing({params}){
     const [active, setActive] = useState("Price");
     const [filteredData, setFilteredData] = useState(baseData);
     const [searchQuery, setSearchQuery] = useState("");
-    const [displaySortBy, setDisplaySortBy] = useState(false)
+    const [displaySortBy, setDisplaySortBy] = useState(false);
+
     // for filtering the tools
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     console.log('imgURL: ', baseData[0].imgUrl);

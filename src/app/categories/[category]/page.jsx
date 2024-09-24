@@ -97,7 +97,7 @@ export default function Categories({params}){
                 <button className={`border-4 rounded-full py-2 px-3 ${active ==="Features" && "bg-glow-light  border-glow-dark shadow-glow"} ` } onClick={() => toggleActive("Features")}>Features</button>
                 <button className={`border-4 rounded-full py-2 px-3 ${active ==="Reviews" && "bg-glow-light  border-glow-dark shadow-glow"} ` } onClick={() => toggleActive("Reviews")}>Reviews</button>
             </div>
-            <div className="flex gap-[15px] laptop:gap-[6px] px-[67px] laptop:px-[12px] items-stretch justify-center">
+            <div className="flex gap-[15px]  laptop:gap-[6px] laptopSmall:gap-0 px-[67px] laptop:px-[12px] laptopSmall:px-0 items-stretch justify-center">
                 <div>
                 
                     <ToolCard {...baseData[0]}  />
@@ -154,17 +154,17 @@ export default function Categories({params}){
             </div>
             <div className="flex justify-around items-center">
                 <span></span>
-                <span className="text-4xl">AI Tools</span>
+                <span className="text-4xl laptopSmall:text-xl">AI Tools</span>
                 <span className="flex gap-10">
-                   <span className="px-3 py-[6px] border rounded-[17px] flex items-center text-xl font-sqrt-roman gap-[11px]">
+                   <span className="px-3 py-[6px] border rounded-[17px] flex items-center text-xl laptopSmall:text-base font-sqrt-roman gap-[11px]">
                          <span>Filter</span>
-                        <Image src={filter} alt="filter logo"  onClick={() => setIsFilterOpen(!isFilterOpen)} />
+                        <Image src={filter} alt="filter logo" className=" laptopSmall:size-8"  onClick={() => setIsFilterOpen(!isFilterOpen)} />
                         <Filter open={isFilterOpen} close={setIsFilterOpen} />
                     </span>
-                   <span className="px-3 py-[6px] border rounded-[17px] flex items-center text-xl font-sqrt-roman gap-[11px]">
+                   <span className="px-3 py-[6px] border rounded-[17px] flex items-center text-xl laptopSmall:text-base font-sqrt-roman gap-[11px]">
                     <span>Sort</span>
                     <Sort open={displaySortBy}  close={setDisplaySortBy} data={sortBy}/>
-                    <Image src={sort} alt="filter logo" onClick={() => setDisplaySortBy(true)} />
+                    <Image src={sort} alt="filter logo" className=" laptopSmall:size-8" onClick={() => setDisplaySortBy(true)} />
                     </span>
                 </span>
             </div>

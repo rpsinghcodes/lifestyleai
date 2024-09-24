@@ -32,7 +32,7 @@ export default function FAQ(){
         <Header />
         <SearchBar />
         <section className="px-[298px] laptop:px-[98px] py-[100px] laptop:py-[50px] text-white">
-            <h1 className="text-3xl laptop:text-2xl pb-[85px]">FAqs</h1>
+            <h1 className="text-3xl laptop:text-2xl laptopSmall:text-xl pb-[85px]">FAqs</h1>
             {/* Accordian */}
             <div>
                 {accordianData.map((item, index) =>  <Accordian key={item.question} {...item} isOpen={isOpen === index}  onClick={() =>handleAccordian(index)} />)}

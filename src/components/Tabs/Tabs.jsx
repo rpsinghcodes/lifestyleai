@@ -12,31 +12,31 @@ import ProsAndCons from "../ProsAndCons/ProsAndCons";
 import OverAllRating from "../OverAllRating/OverAllRating";
 
 export default function Tabs() {
-  const [activeTab, setActiveTab] = useState("Features");
+  const [activeTab, setActiveTab] = useState("Features"); // toggling the tabs
 
-//   const tabClasses = "px-6 py-3 text-white cursor-pointer";
-//   const activeTabClasses = "border-b-2 border-green-500 bg-transparent";
+  const tabClasses = "flex-1 text-center  py-4 px-[50px] bg-gradient-to-b from-[rgba(17,100,102,0.5)] to-transparent";
+  const activeTabClasses = "w-[90%] h-[90%] bg-black   p-3 rounded-r-lg rounded-l-lg mx-auto my-3";
 
   return (
     <div>
-        <div className=" font-sqrt-roman text-xl laptop:text-base w-full flex ">
+        <div className=" font-sqrt-roman text-xl laptop:text-base laptopSmall:text-sm w-full flex ">
             <span className="flex-1 text-center py-4 px-[50px] bg-gradient-to-b from-[rgba(17,100,102,0.5)] to-transparent" onClick={() => setActiveTab("Features")}>
-              <span className={` ${activeTab === "Features" && "w-[90%] h-[90%] bg-black   p-3 rounded-r-lg rounded-l-lg mx-auto my-3"} `}>
+              <span className={` ${activeTab === "Features" && activeTabClasses} `}>
                 Features
               </span>
             </span>
-            <span className="flex-1 text-center  py-4 px-[50px] bg-gradient-to-b from-[rgba(17,100,102,0.5)] to-transparent" onClick={() => setActiveTab("Pricing")}>
-            <span className={` ${activeTab === "Pricing" && "w-[90%] h-[90%] bg-black   p-3 rounded-r-lg rounded-l-lg mx-auto my-3"} `}>
+            <span className={tabClasses} onClick={() => setActiveTab("Pricing")}>
+            <span className={` ${activeTab === "Pricing" && activeTabClasses} `}>
                 Pricing
                 </span>
             </span>
-            <span className="flex-1 text-center  py-4 px-[50px] bg-gradient-to-b from-[rgba(17,100,102,0.5)] to-transparent" onClick={() => setActiveTab("Pros&Cons")}>
-              <span className={` ${activeTab === "Pros&Cons" && "w-[90%] h-[90%] bg-black   p-3 rounded-r-lg rounded-l-lg mx-auto my-3"} `}>
+            <span className={tabClasses} onClick={() => setActiveTab("Pros&Cons")}>
+              <span className={` ${activeTab === "Pros&Cons" && "w-[90%] h-[90%] bg-black   p-3 laptopSmall:p-1 rounded-r-lg rounded-l-lg mx-auto my-3"} `}>
               Pros & Cons
               </span>
             </span>
-            <span className="flex-1 text-center  py-4 px-[50px] bg-gradient-to-b from-[rgba(17,100,102,0.5)] to-transparent" onClick={() => setActiveTab("Reviews")}>
-              <span className={` ${activeTab === "Reviews" && "w-[90%] h-[90%] bg-black   p-3 rounded-r-lg rounded-l-lg mx-auto my-3"} `}>
+            <span className={tabClasses} onClick={() => setActiveTab("Reviews")}>
+              <span className={` ${activeTab === "Reviews" && activeTabClasses} `}>
               Reviews
               </span>
             </span>
