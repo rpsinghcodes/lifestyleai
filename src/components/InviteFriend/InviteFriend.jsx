@@ -17,10 +17,10 @@ export default function InviteFriend(){
     const { isInviteOpen, setIsInviteOpen } = useGlobalState();    
     const socialIconsClass = "flex gap-2 items-center  py-[2px] pr-2 rounded-full invite-gradient"
     return(
-        <dialog open={isInviteOpen} className="w-[1000px] z-40 mt-12  my-auto rounded-[73px] overflow-hidden text-white text-base bg-[#116466]">
+        <dialog open={isInviteOpen} className="w-[1000px] laptopSmall:w-[850px] z-40 mt-12  my-auto rounded-[73px] overflow-hidden text-white text-base bg-[#116466]">
             <div className="flex justify-around  py-7">
                 <span></span>
-            <h1 className="text-lg laptop:text-base">Invite A Friend!</h1>
+            <h1 className="text-lg laptop:text-base laptopSmall:text-sm">Invite Friend!</h1>
             <span onClick={() => setIsInviteOpen(false)} className="relative inline-block w-6 h-6 cursor-pointer">
                 <span className="absolute top-0 left-1/2 transform -translate-x-1/2 h-6 w-[3px] rounded-lg rotate-45 bg-white"></span>
                 <span className="absolute top-0 left-1/2 transform -translate-x-1/2 h-6 w-[3px] rounded-lg -rotate-45 bg-white"></span>
@@ -28,7 +28,7 @@ export default function InviteFriend(){
 
             </div>
             <div className="bg-[#062829] font-sqrt-roman text-center pb-16">
-                <p className="text-base laptop:text-sm  px-[70px]  text-center pt-[50px]">
+                <p className="text-base laptop:text-sm laptopSmall:text-xs  px-[70px]  text-center pt-[50px]">
                     Know someone curious about AI? Share this website with your friends with your unique referral link
                 </p>
                 <div className="relative  max-w-2xl laptop:max-w-lg mx-auto mt-8    text-sm laptop:text-xs ">

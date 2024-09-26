@@ -115,13 +115,12 @@ export default function Header() {
                 } 
                 <span className="absolute size-[26px] rounded-full -right-[16px] -top-[18px]">2</span>
                  </li>
-            <li onClick={() => setIsInviteOpen(true)} className=" cursor-pointer">Invite a friend</li>
+            <li onClick={() => setIsInviteOpen(true)} className=" cursor-pointer">Invite friend</li>
             
         </nav>
         
-        {isUserLogedIn ? "" :""}
         <div className="flex items-center decoration gap-4">
-          {isUserDropdownOpen ? <div className="flex items-center decoration gap-4">
+          {isUserLogedIn ? <div className="flex items-center decoration gap-4">
             <span>john doe</span>
             <Image src='/images/Ellipse7.png' alt="ellise" width={50} height={50} />
           </div> : <Link href="/login"><span>Login/sign up</span></Link>}
@@ -132,8 +131,8 @@ export default function Header() {
             <span className="h-[2px] w-[24px] m-[4px] bg-white block cursor-pointer"></span>
             <span  className="h-[2px] w-[24px]  bg-white block cursor-pointer"></span>
           </div>
-            {isUserDropdownOpen && <div className=" absolute right-[2px] top-3 w-[419px]   z-10  mt-6  bg-[#062829] text-white  p-2 rounded shadow-lg">
-          <ul className="flex flex-col px-[50px] text-base ">
+            {isUserDropdownOpen && <div className=" absolute right-[2px] top-3 w-[419px] laptopSmall:w-[320px]   z-10  mt-6  bg-[#062829] text-white  p-2 rounded shadow-lg">
+          <ul className="flex flex-col px-[50px] laptopSmall:px-[40px] text-base laptopSmall:text-xs  ">
             <li className="p-2" onClick={toggleUserDropdown}> <Link href="/myAccount"> My Account </Link></li>
             <hr className="w-1/2 mx-auto " />
             <li className="p-2" onClick={toggleUserDropdown}><Link href="/myAccount/bookmark">Bookmarks</Link></li>

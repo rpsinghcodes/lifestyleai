@@ -114,7 +114,7 @@ export default function Comparision(){
             <div className="border-r-2 border-white pr-6 py-6">
                 <div className="flex flex-col gap-4 justify-center items-center text-white">
                     {/* Overall Rating */}
-                    <div className="flex flex-col items-center text-xl laptop:text-base laptopSmall:text-xs">
+                    <div className="flex flex-col items-center text-xl laptop:text-base laptopSmall:text-[16px]">
                         <span>Overall Rating</span>
                         <div className="flex">
                             {Array(5).fill().map((_, i) => (
@@ -149,7 +149,7 @@ export default function Comparision(){
             <div className="border-r-2 border-white pr-6 py-6">
                 <div className="flex flex-col gap-4 justify-center items-center text-white">
                     {/* Overall Rating */}
-                    <div className="flex flex-col items-center text-xl laptop:text-base laptopSmall:text-xs">
+                    <div className="flex flex-col items-center text-xl laptop:text-base laptopSmall:text-[16px]">
                         <span>Overall Rating</span>
                         <div className="flex">
                             {Array(5).fill().map((_, i) => (

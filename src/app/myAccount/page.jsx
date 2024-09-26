@@ -13,7 +13,8 @@ import VideoHistory from "@/components/VideoHistory/VideoHistory";
 import HistoryBlogAndArticles from "@/components/HistoryBlogAndArticles/HistoryBlogAndArticles";
 
 export default function Account(){
-    const listClass = " w-full text-center font-sqrt-roman  py-[14px] text-xl laptop:text-base px-4 laptop:px-2"
+    const listClass = " w-full text-center font-sqrt-roman  py-[14px] text-xl laptop:text-base laptopSmall:text-xs px-4 laptop:px-2";
+    const navLinkStyle = "text-sm laptopSmall:text-[16px] border-b  p-1 hover:bg-slate-200";
     let content = <MyAccount />
     const [section, setSection] = useState("my-account");
     const [bookmarkIsOpen, setBookMarkIsOpen] = useState(false);
@@ -61,20 +62,20 @@ export default function Account(){
                 <div className="relative">
                 <button className={`${listClass}  ${(section === "bookmark-tools" || section === "bookmark-history" || section === "bookmark-blog-and-articles") && "bg-[#116466]"} relative`} onClick={() => {setBookMarkIsOpen(!bookmarkIsOpen); setHistoryIsOpen(false)}}>Bookmarks</button>
                     {bookmarkIsOpen && (
-                        <div className="absolute bg-[#116466] top-16 flex flex-col gap-3  rounded p-2 z-10">
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("bookmark-tools"); setBookMarkIsOpen(!bookmarkIsOpen);}}>Tools</span>
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200"onClick={() => {updateSection("bookmark-history"); setBookMarkIsOpen(!bookmarkIsOpen);}}>Videos</span>
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200"onClick={() => {updateSection("bookmark-blog-and-articles"); setBookMarkIsOpen(!bookmarkIsOpen);}}>Blogs and Articles</span>
+                        <div className="absolute bg-[#116466] top-16 flex flex-col gap-3  p-2 z-10">
+                            <span className={navLinkStyle} onClick={() => {updateSection("bookmark-tools"); setBookMarkIsOpen(!bookmarkIsOpen);}}>Tools</span>
+                            <span className={navLinkStyle}onClick={() => {updateSection("bookmark-history"); setBookMarkIsOpen(!bookmarkIsOpen);}}>Videos</span>
+                            <span className={navLinkStyle}onClick={() => {updateSection("bookmark-blog-and-articles"); setBookMarkIsOpen(!bookmarkIsOpen);}}>Blogs and Articles</span>
                         </div>
                     )}
                 </div>
                 <div className="relative w-full">
                 <button className={`${listClass} relative ${(section === "tool-history" || section === "videos-history" || section === "history-blog-and-articles") && "bg-[#116466]"}`} onClick={() => {setHistoryIsOpen(!historyIsOpen); setBookMarkIsOpen(false);}}>History</button>
                     {historyIsOpen && (
-                        <div className="absolute bg-[#116466] top-16 flex flex-col gap-3  rounded p-2 z-10">
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("tool-history"); setHistoryIsOpen(!historyIsOpen); }}>Tool</span>
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("videos-history"); setHistoryIsOpen(!historyIsOpen); }}>Video</span>
-                            <span className="text-sm border-b rounded p-1 hover:bg-slate-200" onClick={() => {updateSection("history-blog-and-articles"); setHistoryIsOpen(!historyIsOpen); }}>Blog and Article</span>
+                        <div className="absolute bg-[#116466] top-16 flex flex-col gap-3  p-2 z-10">
+                            <span className={navLinkStyle} onClick={() => {updateSection("tool-history"); setHistoryIsOpen(!historyIsOpen); }}>Tool</span>
+                            <span className={navLinkStyle} onClick={() => {updateSection("videos-history"); setHistoryIsOpen(!historyIsOpen); }}>Video</span>
+                            <span className={navLinkStyle} onClick={() => {updateSection("history-blog-and-articles"); setHistoryIsOpen(!historyIsOpen); }}>Blog and Article</span>
                         </div>
                     )}
                 </div>

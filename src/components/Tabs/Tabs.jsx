@@ -19,7 +19,7 @@ export default function Tabs() {
 
   return (
     <div>
-        <div className=" font-sqrt-roman text-xl laptop:text-base laptopSmall:text-sm w-full flex ">
+        <div className=" font-sqrt-roman text-xl laptop:text-base laptopSmall:text-xs w-full flex ">
             <span className="flex-1 text-center py-4 px-[50px] bg-gradient-to-b from-[rgba(17,100,102,0.5)] to-transparent" onClick={() => setActiveTab("Features")}>
               <span className={` ${activeTab === "Features" && activeTabClasses} `}>
                 Features
