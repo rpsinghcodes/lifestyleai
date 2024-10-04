@@ -183,6 +183,9 @@ export default function VidePage(){
     const headingStyle = "text-center text-3xl laptopSmall:text-xl  py-14";
     const hrStyle = "h-[2px] w-[480px] laptopSmall:w-[380px] bg-white";
     const seeMoreBtnStyle = "text-lg laptopSmall:text-base cursor-pointer";
+    const containerClass = "flex gap-16 laptop:gap-6 flex-wrap justify-center";
+    const videoParentContainer = "px-[162px] laptopSmall:px-[20px] py-12"
+
     const [forYouPageNumber, setForYouPageNumber] = useState(1)
     const [trendingVideoPageNumber, setTrendingVideoPageNumber ] = useState(1);
     const [newVideoPageNumber, setNewVideoPageNumber] = useState(1);
@@ -211,7 +214,7 @@ export default function VidePage(){
         <SearchBar onChange={handleChange} />
         <section className="p-20 laptop:p-10">
 
-            <div className="flex gap-7 justify-around p-[84px] laptop:p-[40px] laptopSmall:p-5">
+            <div className="flex gap-7 justify-around p-[84px] laptop:p-[40px] laptopSmall:p-5 min-h-[587px] laptopSmall:min-h-[450px]">
                 <Link href="https://www.youtube.com/watch?v=H-MDGBegBBk" className="w-[1044px] laptop:w-auto h-[587px] laptop:h-auto bg-[url('/images/featuredImageMain.png')]  bg-center flex  flex-col justify-end rounded-[36px] overflow-hidden" target="_blank">
                 <div className="featured-video-gradient p-0  h-full flex text-lg laptop:text-sm  laptopSmall:text-[12px]">
                     <div className="mt-auto w-[80%] flex flex-col gap-3 pb-3 pl-8">
@@ -227,6 +230,7 @@ export default function VidePage(){
 
                 </Link>
                 <div className="flex flex-col gap-8 laptop:gap-4">
+                    {featuredVideos.length === 0 && <p>No Video Found</p>}
                     {featuredVideos?.slice(0, 3).map(item => <Link href={item?.link} key={item.slug} className="flex w-[679px] laptopSmall:w-[500px] gap-3" target="_blank">
                         <div className="relative rounded-[60px] laptopSmall:rounded-[32px] min-w-[315px] h-[177px] laptopSmall:h-[130px] laptopSmall:min-w-[232px] overflow-hidden">
                             <Image loading="lazy" src={item.img} alt={item.slug} fill className="object-fill" />
@@ -248,10 +252,10 @@ export default function VidePage(){
             </div>
         </section>
         {/* For you section */}
-        <section className="px-[162px] laptopSmall:px-[40px] py-12">
+        <section className={videoParentContainer}>
             <h1 className={headingStyle}>For You</h1>
             
-            <div className="flex gap-16 flex-wrap justify-center">
+            <div className={containerClass}>
                 {videoData.forYou.slice(0, (forYouPageNumber* videoPerPage)).map(item => <VideoContainer key={item.link} img={item.img} href={item.link} slug={item.slug} channel={item.channel} views={item.views} date={item.date} />              )}
             </div>
             <div className={`flex flex-col justify-center items-center py-28 gap-12 ${(videoData.forYou.slice(0, (forYouPageNumber * videoPerPage))).length >= (videoData.forYou).length && "hidden"}`} >
@@ -261,10 +265,10 @@ export default function VidePage(){
         </section>
 
         {/* Trending Section */}
-        <section className="px-[162px] laptopSmall:px-[40px] py-12">
+        <section className={videoParentContainer}>
         <h1 className={headingStyle}>Trending</h1>
         
-        <div className="flex gap-16 laptop:gap-8 flex-wrap justify-center">
+        <div className={containerClass}>
                 {videoData.trending.slice(0, (trendingVideoPageNumber* videoPerPage)).map(item => <VideoContainer key={item.link} img={item.img} href={item.link} slug={item.slug} channel={item.channel} views={item.views} date={item.date} /> 
 
                 )}
@@ -275,10 +279,10 @@ export default function VidePage(){
             </div>
         </section>
         {/* New Video Section */}
-        <section className="px-[162px] laptopSmall:px-[40px] py-12">
+        <section className={videoParentContainer}>
         <h1 className={headingStyle}>New Videos</h1>
         
-        <div className="flex gap-16 flex-wrap justify-center">
+        <div className={containerClass}>
                 {videoData.newVideo.slice(0, (newVideoPageNumber*videoPerPage)).map(item => <VideoContainer key={item.link} img={item.img} href={item.link} slug={item.slug} channel={item.channel} views={item.views} date={item.date} /> 
 
                 )}

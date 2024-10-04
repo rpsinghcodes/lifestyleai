@@ -16,12 +16,13 @@ Home Page of our Application
 
 export default function Home() {  
   const [sectionIsVisible, setSectionIsVisible] = useState(false) // Trending and ForYou  as well as footer section visiblity
+  const boxClass = "text-center flex flex-col justify-center items-center  gap-1 laptopSmall:gap-2 border border-[#FFCB9A] shadow-glow rounded-[30px] px-6 laptopSmall:px-4 py-3 laptopSmall:py-2"
 
   return (
     <>
    <Header />
    
-   <section className={`text-white  `} >
+   <section className="text-white h-[80vh]" >
     <div  className="flex  items-center justify-around ">
     <div className= " flex-1 px-24 laptop:px-12 laptopSmall:px-8">
       <div className="flex flex-col gap-11 justify-center items-center mt-8">
@@ -40,9 +41,9 @@ export default function Home() {
     </div>
     </div>
 
-    <div className="flex flex-col justify-center gap-y-12  px-24 laptopSmall:px-8 py-10 laptop:py-6 text-base laptop:text-xs  laptopSmall:text-[16px] ">   
+    <div className="flex flex-col justify-center gap-y-5 laptopSmall:gap-y-3  px-24 laptopSmall:px-8 py-4 laptop:py-6 text-base laptop:text-xs  laptopSmall:text-[16px] ">   
  
-      <div className=" text-center flex flex-col justify-center items-center mr-20 gap-4 laptopSmall:gap-1 border border-[#FFCB9A] shadow-glow rounded-[30px] px-6 laptopSmall:px-4 py-8 laptopSmall:py-6">
+      <div className={boxClass + " mr-20"}>
         <div className="flex bg-transparent">
           <Image src={star} height={28} width={28} alt="star-filled" />
           <Image src={star} height={28} width={28} alt="star-filled" />
@@ -55,7 +56,7 @@ export default function Home() {
       </div>
 
 
-  <div className=" text-center flex flex-col justify-center items-center ml-20 gap-4 border border-[#FFCB9A] rounded-[30px] px-6 laptopSmall:px-4 py-8 laptopSmall:py-6 shadow-glow">
+  <div className={boxClass + " ml-20"}>
     <div className="flex bg-transparent">
       <Image src={star} height={28} width={28} alt="star-filled" />
       <Image src={star} height={28} width={28} alt="star-filled" />
@@ -69,7 +70,7 @@ export default function Home() {
 
 
 
-  <div className=" text-center flex flex-col justify-center items-center mr-20 gap-4 border border-[#FFCB9A] rounded-[30px] px-6 laptopSmall:px-4 py-8 laptopSmall:py-6 shadow-glow">
+  <div className={boxClass + " mr-20"}>
     <div className="flex bg-transparent">
       <Image src={star} height={28} width={28} alt="star-filled" />
       <Image src={star} height={28} width={28} alt="star-filled" />
@@ -84,9 +85,9 @@ export default function Home() {
 
       </div>
       </div>
-      <div className="flex flex-col justify-center items-center pb-10 laptopSmall:pb-5">
+      <div className="flex flex-col justify-center items-center">
         <p>Find more AI tools</p>
-        <Link href="#trending" className={`size-6 border-b-4 border-r-4 border-gray-400 transform my-6 ${sectionIsVisible ? "rotate-[225deg]" : "rotate-45"} `} onClick={() => setSectionIsVisible(!sectionIsVisible)} />
+        <Link href="#trending" className={`size-6 border-b-4 border-r-4 border-gray-400 transform my-2 ${sectionIsVisible ? "rotate-[225deg]" : "rotate-45"} `} onClick={() => setSectionIsVisible(!sectionIsVisible)} />
       </div>
    </section>
 

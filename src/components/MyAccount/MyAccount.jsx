@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ChatGpt from "../../../public/images/chatGpt.png";
 import huggingFace from "../../../public/images/huggingFace.png"
+import UpdatePersonalInfo from "../UpdatePersonalInfo/UpdatePersonalInfo";
 
 /*
 
@@ -10,6 +11,7 @@ This component allow us to show the details of the user currently it is static
 */
 
 export default function MyAccount() {
+    const personalDetailClass = "flex justify-between py-[30px] px-20 laptopSmall:px-10 text-base laptopSmall:text-sm items-center font-sqrt-roman"
     return (
         <div className="flex h-full w-full">
             <span className="h-[95%] w-[2px] my-[50px] bg-white "> </span>
@@ -18,34 +20,29 @@ export default function MyAccount() {
                 <hr className="w-full mt-10" />
                 <div className="flex  my-[50px] gap-[100px] laptopSmall:gap-[40px] min-w-[1148px] laptopSmall:min-w-[800px]">
                     <div className="flex-grow ">
+                        <div className="flex justify-between">
                         <h3 className="text-xl laptopSmall:text-base font-sqrt-roman">Personal Info</h3>
+                        <button className="border rounded-full p-2">Change</button>
+                        
+                        </div>
+                        <UpdatePersonalInfo name="John Doe" email="Johndoe@gmail.com" open={true} />
                         <hr className="w-full mt-5" />
-                        <div className="flex justify-between py-[30px] px-20 laptopSmall:px-10 text-base laptopSmall:text-sm font-sqrt-roman">
+                        <div className={personalDetailClass}>
                             <span>Username</span>
                             <span>John Doe</span>
-                            <button className="rounded-full border-[2px] px-4 py-2">Change</button>
                         </div>
                         <hr className="w-full mt-5" />
-                        <div className="flex justify-between py-[30px] px-20 laptopSmall:px-10 text-base laptopSmall:text-sm font-sqrt-roman">
+                        <div className={personalDetailClass}>
                             <span>Email</span>
                             <span>Johndoe@gmail.com</span>
-                            <button className="rounded-full border-[2px] px-4 py-2">Change</button>
                         </div>
                         <hr className="w-full mt-5" />
-                        <div className="flex justify-between py-[30px] px-20 laptopSmall:px-10 text-base laptopSmall:text-sm items-center font-sqrt-roman">
+                        <div className={personalDetailClass}>
                             <span>Password</span>
                             <span className="flex">
-                                <span className="h-[15px] w-[15px] rounded-full bg-white"></span>
-                                <span className="h-[15px] w-[15px] rounded-full bg-white"></span>
-                                <span className="h-[15px] w-[15px] rounded-full bg-white"></span>
-                                <span className="h-[15px] w-[15px] rounded-full bg-white"></span>
-                                <span className="h-[15px] w-[15px] rounded-full bg-white"></span>
-                                <span className="h-[15px] w-[15px] rounded-full bg-white"></span>
-                                <span className="h-[15px] w-[15px] rounded-full bg-white"></span>
-                                <span className="h-[15px] w-[15px] rounded-full bg-white"></span>
-                                <span className="h-[15px] w-[15px] rounded-full bg-white"></span>
+                                {/* generating stars */}
+                                {Array(9).fill().map((_, i) => <span key={i} className="h-[15px] w-[15px] rounded-full bg-white"></span>)}
                             </span>
-                            <button className="rounded-full border-[2px] px-4 py-2">Change</button>
                         </div>
 
                         {/* Your Subscription */}

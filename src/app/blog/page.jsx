@@ -1,5 +1,6 @@
 "use client";
 
+import BlogContainer from "@/components/BlogContainer/BlogContainer";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import SearchBar from "@/components/SearchBar/SearchBar";
@@ -17,7 +18,8 @@ This is a blog page at '/blog' route here are some static blogs listed
 
 // static blogData 
 const blogData = {
-    thisWeek:[{img: "/images/image1.png", slug:"AI in Finance: The New Frontier", title: "MIT Technology Review", date:"March 30, 2023"}],
+    thisWeek:[{img: "/images/image1.png", slug:"AI in Finance: The New Frontier", title: "MIT Technology Review", date:"March 30, 2023", url:"https://medium.com/age-of-awareness/teaching-during-the-rise-of-ai-and-the-end-of-reading-068a6515318f"}, {img: "/images/image2.png", slug:"The Future of Artificial Intelligence", title: "Bernard Marr, Forbes ", date:"March 30, 2023", url:"https://medium.com/age-of-awareness/teaching-during-the-rise-of-ai-and-the-end-of-reading-068a6515318f"},
+      {img: "/images/image3.png", slug:"AI and Ethics: Navigating the Moral Landscape", title: "Kate Crawford, Nature", date:"March 30, 2023", url:"https://medium.com/age-of-awareness/teaching-during-the-rise-of-ai-and-the-end-of-reading-068a6515318f"}],
     recent:[
         {img: "/images/image2.png", slug:"The Future of Artificial Intelligence", title: "Bernard Marr, Forbes ", date:"March 30, 2023", url:"https://medium.com/age-of-awareness/teaching-during-the-rise-of-ai-and-the-end-of-reading-068a6515318f"},
         {img: "/images/image3.png", slug:"AI and Ethics: Navigating the Moral Landscape", title: "Kate Crawford, Nature", date:"March 30, 2023", url:"https://medium.com/age-of-awareness/teaching-during-the-rise-of-ai-and-the-end-of-reading-068a6515318f"},
@@ -33,7 +35,7 @@ const blogData = {
       {
         img: "https://miro.medium.com/v2/resize:fit:750/format:webp/1*C0koZiqddVRNo_UTjkreVA.png",
         slug:"Why NextJS Sucks",
-        title: "I’ve used NextJS for static websites because the experience with amplify hosting is so insanely easy. ",
+        title: "Medium ",
         date:"January 20, 2023",
         link:"https://medium.com/@thecodingteacher_52591/why-nextjs-sucks-0352de93071b"
       },
@@ -48,73 +50,99 @@ const blogData = {
 }
 
 export default function BlogPage(){
-    const [filteredData, setFilteredData] = useState(blogData.quickReads) // for filtering the data base on user search
+  const headingStyle = "text-center text-3xl laptopSmall:text-xl  py-14";
+  const hrStyle = "h-[2px] w-[480px] laptopSmall:w-[380px] bg-white";
+  const seeMoreBtnStyle = "text-lg laptopSmall:text-base cursor-pointer";
+  const containerClass = "flex gap-16 laptop:gap-6 flex-wrap justify-center";
+  const videoParentContainer = "px-[162px] laptopSmall:px-[20px] py-12"
 
-    function handleOnChange(e) {
-      const query = e.target.value;
-      if (query) {
-        const lowerCaseQuery = query.toLowerCase();
-        const filtered = blogData.quickReads.filter((blog) =>
-          blog.slug.toLowerCase().includes(lowerCaseQuery)
-        );
-        setFilteredData(filtered);
-      } else {
-        setFilteredData(blogData.quickReads);
+  const [recent, setRecent] = useState(1)
+  const [quickReads, setQuickReads ] = useState(1);
+  const BlogPerPage = 6;
+
+  
+
+  const [featuredBlog, setFeaturedVideo] = useState(blogData.thisWeek);
+
+  function handleChange(e) {
+      let filteredVideos = blogData.recent
+      const lowerCaseQuery = e.target.value.toLowerCase();
+      if(e.target.value) {
+          filteredVideos = blogData.thisWeek.filter(videos => videos.slug.toLowerCase().includes(lowerCaseQuery))
+          setFeaturedVideo(filteredVideos);
+      }else {
+          setFeaturedVideo(blogData.thisWeek);
       }
-    }
-    
-    return (
-        <>
-        <Header />        
+  }
 
-      <section className="text-white px-16 laptopSmall:px-4 my-14 flex gap-14 laptopSmall:gap-7 justify-start items-start">
-        {/* This Week section */}
-        <Link  href="https://medium.com/age-of-awareness/teaching-during-the-rise-of-ai-and-the-end-of-reading-068a6515318f" target="_blank">
-            <h1 className="text-4xl laptop:text-3xl laptopSmall:text-xl">This Week</h1>
-            <div className="mt-7">
-              <div className="relative laptopSmall:h-[420px] w-[400px]">
-                <Image src={blogData.thisWeek[0].img} alt="Blog" fill  />
-                </div>
-                <h3 className="text-xl laptopSmall:text-base font-sqrt">{blogData.thisWeek[0].slug}</h3>
-                <p className="text-base laptopSmall:text-sm font-sqrt-roman">{blogData.thisWeek[0].title}</p>
-                <span className="text-base laptopSmall:text-sm  font-sqrt-roman">{blogData.thisWeek[0].date}</span>
-            </div>
-        </Link>
-        {/* Recent Blog section */}
-        <div>
-        <h1 className="font-sqrt-roman text-3xl laptop:text-2xl laptopSmall:text-lg w-[847px] laptopSmall:w-auto">Recent Blogs and Articles</h1>
-        <div className="mt-7">
-            {blogData?.recent?.map(item => <Link href={item.url} key={item.slug} className="flex  items-center gap-3 laptopSmall:gap-1 mb-8" target="_blank">
-            <Image src={item.img} alt="Blog" width={200} height={200} />
-            <div className="flex flex-col font-sqrt p-3 w-[636px] laptopSmall:w-[466px]">
-                <h3 className="text-xl last:text-lg laptopSmall:text-base font-sqrt">{item.slug}</h3>
-                <p className="text-base laptop:text-sm laptopSmall:text-xs font-sqrt-roman">{item.title}</p>
-                <span className="text-base laptop:text-sm laptopSmall:text-xs font-sqrt-roman">{item.date}</span>
-            </div>
-            </Link>)}
-            
-        </div>
-        </div>
-      </section>
-              {/* Quick Read Section */}
-      <section className="text-white px-16 laptopSmall:px-4 my-14">
-        <h1 className="font-sqrt text-3xl laptop:text-2xl laptopSmall:text-xl">Quick Reads</h1>
-        <SearchBar  onChange={handleOnChange} />
-        <div className="flex justify-center gap-14 laptopSmall:gap-3  p-16 laptopSmall:p-8 flex-wrap">
-          {/* Attention: Temporary color i.e bg-green-300 */}
-        {filteredData?.map(item => <Link key={item.slug} href={item?.link || "newlink"} target="_blank" className="p-3 pb-20 rounded-[60px] bg-transparent shadow-2xl w-[461px]  max-w-[460px] laptopSmall:max-w-[300px] pricing-gradient overflow-hidden"> 
-          <div className="relative min-h-[437px] laptop:min-h-[337px] min-w-[313px] laptop:min-w-[213px] laptopSmall:min-h-[250px]  overflow-hidden rounded-[60px]">
-            <Image src={item.img} alt="Blog" className=" object-cover" fill={true}/>
+  
+
+  return (
+      <>
+      <Header />
+      <SearchBar onChange={handleChange} />
+      <section className="p-20 laptop:p-10">
+
+          <div className="flex gap-7 justify-around p-[84px] laptop:p-[40px] laptopSmall:p-5 min-h-[587px] laptopSmall:min-h-[450px]">
+              <Link href="https://www.youtube.com/watch?v=H-MDGBegBBk" className="w-[1044px] laptop:w-auto h-[587px] laptop:h-auto bg-[url('/images/featuredImageMain.png')]  bg-center flex  flex-col justify-end rounded-[36px] overflow-hidden" target="_blank">
+              <div className="featured-video-gradient p-0  h-full flex text-lg laptop:text-sm  laptopSmall:text-[12px]">
+                  <div className="mt-auto w-[80%] flex flex-col gap-3 pb-3 pl-8">
+                      <h2 className="text-2xl laptop:text-base laptopSmall:text-xs">AI Generated Videos Just Changed Forever</h2>
+                      <span className="font-sqrt-roman">Marques Brownlee</span>
+                      <span className="flex items-center gap-2  font-sqrt-roman ">Feb 15 2024
+                      </span>
+                  </div>
+              </div>
+
+              </Link>
+              <div className="flex flex-col gap-8 laptop:gap-4">
+                {featuredBlog.length === 0 && <p>No Blogs Found</p>}
+                  {featuredBlog?.slice(0, 3).map(item => <Link href={item?.url} key={item.slug} className="flex w-[679px] laptopSmall:w-[500px] gap-3" target="_blank">
+                      <div className="relative rounded-[60px] laptopSmall:rounded-[32px] min-w-[315px] h-[177px] laptopSmall:h-[130px] laptopSmall:min-w-[232px] overflow-hidden">
+                          <Image loading="lazy" src={item.img} alt={item.slug} fill className="object-fill" />
+                      </div>
+                      <div className="font-sqrt laptopSmall:text-[12px]">
+                          <h2 className="text-base laptop:text-sm laptopSmall:text-xs font-bold text-wrap">{item.slug}</h2>
+                          <span className="font-sqrt-roman">{item.title}</span>
+                          <div className="flex items-center gap-3 font-sqrt-roman ">
+                              {item.date}
+                          </div>
+                      </div>
+                  </Link>
+              )}
+                  
+                  
+              </div>
           </div>
-          <h2 className="text-xl laptop:text-base laptopSmall:text-sm font-sqrt">{item.slug}</h2>
-          <h3 className="text-base laptop:text-sm laptopSmall:text-xs font-sqrt-roman">{ item.title.length > 50 ?  `${item.title.slice(0, 50)}...` : item.title }</h3>
-          <span className="text-base laptop:text-sm laptopSmall:text-xs font-sqrt-roman">{item.date}</span>
+      </section>
+      {/* Recent section */}
+      <section className={videoParentContainer}>
+          <h1 className={headingStyle}>Recent</h1>
+          
+          <div className={containerClass}>
+              {blogData.recent.slice(0, (recent* BlogPerPage)).map(item => <BlogContainer key={item.url} {...item} />              )}
+          </div>
+          <div className={`flex flex-col justify-center items-center py-28 gap-12 ${(blogData.recent.slice(0, (recent * BlogPerPage))).length >= (blogData.recent).length && "hidden"}`} >
+              <span className={seeMoreBtnStyle} onClick={() => setRecent(prevData => prevData + 1)}>See more</span>
+              <hr className={hrStyle}/>
+          </div>
+      </section>
 
-          </Link>
-        )}
-        </div>
+      {/* Quick Reads Section */}
+      <section className={videoParentContainer}>
+      <h1 className={headingStyle}>Quick Reads</h1>
+      
+      <div className={containerClass}>
+              {blogData.quickReads.slice(0, (quickReads* BlogPerPage)).map(item => <BlogContainer key={item.url} {...item} /> 
+
+              )}
+          </div>
+          <div className={`flex flex-col justify-center items-center py-28 gap-12 ${(blogData.quickReads.slice(0, (quickReads * BlogPerPage))).length >= (blogData.quickReads).length && "hidden"}`} >
+              <button  className={seeMoreBtnStyle} onClick={() => setQuickReads(prevData => prevData + 1)}>See more</button>
+              <hr className={hrStyle}/>
+          </div>
       </section>
       <Footer />
-        </>
+      </>
     )
 }

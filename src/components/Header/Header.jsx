@@ -53,11 +53,11 @@ export default function Header() {
       };
     }, []);
 
-    return <header ref={dropdownRef} className="header-gradient relative text-white flex items-center justify-between p-4 laptopSmall:p-2">        
+    return <header ref={dropdownRef} className="header-gradient relative text-white flex items-center justify-between px-4 py-2 laptopSmall:px-2 ">        
         <Link href="/">
-          <Image src="/images/applogo_whitetransparent.png"  height={46} width={46} alt="lifestalle-logo" />
+          <Image src="/images/applogo_whitetransparent.png"  height={30} width={30} alt="lifestalle-logo" className="laptopSmall:size-[25px]" />
         </Link>
-                <nav className="flex  list-none gap-6">
+                <nav className="flex  list-none gap-6 laptopSmall:text-[16px]">
             <li> <Link href="/"> HOME </Link></li>
             <li onClick={toggleDropdown} className="cursor-pointer relative" >AI News
               { isDropdownOpen && (
@@ -113,7 +113,7 @@ export default function Header() {
                       </div>
                 </div>
                 } 
-                <span className="absolute size-[26px] rounded-full -right-[16px] -top-[18px]">2</span>
+                <span className="absolute size-[26px] rounded-full -right-[26px] -top-[8px]">2</span>
                  </li>
             <li onClick={() => setIsInviteOpen(true)} className=" cursor-pointer">Invite friend</li>
             
